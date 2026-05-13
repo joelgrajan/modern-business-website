@@ -1,4 +1,8 @@
+"use client"
+
+import { useState } from "react"
 export default function Contact() {
+  const [submitted, setSubmitted] = useState(false)
   return (
     <section id="contact" className="py-28 px-6 lg:px-20">
 
@@ -14,16 +18,52 @@ export default function Contact() {
 
       </div>
 
-      <form className="max-w-3xl mx-auto flex flex-col gap-6">
+      <form
+
+  action="https://formspree.io/f/xjglzlkj"
+
+  method="POST"
+
+  onSubmit={async (e) => {
+
+    e.preventDefault()
+
+    const form = e.currentTarget
+
+    const data = new FormData(form)
+
+    const response = await fetch(form.action, {
+      method: "POST",
+      body: data,
+      headers: {
+        Accept: "application/json",
+      },
+    })
+
+    if (response.ok) {
+
+      setSubmitted(true)
+
+      form.reset()
+    }
+
+  }}
+
+  className="max-w-3xl mx-auto flex flex-col gap-6"
+>
 
         <input
           type="text"
+          name="name"
+          
+
           placeholder="Your Name"
           className="bg-slate-900 border border-slate-800 rounded-2xl px-6 py-5 outline-none"
         />
 
         <input
   type="email"
+  name="email"
   placeholder="Your Email"
   pattern=".+@.+\..+"
   title="Please enter a complete email address (example@gmail.com)"
@@ -32,10 +72,17 @@ export default function Contact() {
 />
 
         <textarea
+        name="message"
           placeholder="Your Message"
           className="bg-slate-900 border border-slate-800 rounded-2xl px-6 py-5 outline-none min-h-[220px]"
         ></textarea>
+{submitted && (
 
+  <p className="text-green-400 text-center">
+    Message sent successfully!
+  </p>
+
+)}
         <button
   className="
     bg-blue-600
