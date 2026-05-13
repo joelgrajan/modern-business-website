@@ -27,3 +27,11 @@ body {
 html {
   scroll-behavior: smooth;
 }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 120px;
+}
+
+body {
+  overflow-x: hidden;
+}

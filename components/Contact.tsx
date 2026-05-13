@@ -3,6 +3,7 @@
 import { useState } from "react"
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false)
+  const [loading, setLoading] = useState(false)
   return (
     <section id="contact" className="py-28 px-6 lg:px-20">
 
@@ -27,6 +28,7 @@ export default function Contact() {
   onSubmit={async (e) => {
 
     e.preventDefault()
+    setLoading(true)
 
     const form = e.currentTarget
 
@@ -43,6 +45,7 @@ export default function Contact() {
     if (response.ok) {
 
       setSubmitted(true)
+      setLoading(false)
 
       form.reset()
     }
@@ -84,7 +87,10 @@ export default function Contact() {
 
 )}
         <button
+        disabled={loading}
   className="
+  disabled:opacity-50
+disabled:cursor-not-allowed
     bg-blue-600
     hover:bg-blue-500
     hover:scale-105
@@ -99,7 +105,7 @@ export default function Contact() {
     shadow-blue-600/20
   "
 >
-  Send Message
+  {loading ? "Sending..." : "Send Message"}
 </button>
 
       </form>
