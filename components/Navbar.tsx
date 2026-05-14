@@ -70,15 +70,19 @@ export default function Navbar({
         {/* Logo Box */}
 
         <div
-          className="
-            bg-white/5
-            backdrop-blur-xl
-            border
-            border-white/10
-            rounded-2xl
-            px-6
-            py-4
-          "
+         className={`
+  backdrop-blur-xl
+  border
+  rounded-2xl
+  px-6
+  py-4
+  transition-colors
+  duration-500
+
+  ${darkMode
+    ? "bg-white/5 border-white/10"
+    : "bg-black/5 border-black/10"}
+`}
         >
 
           <h1 className="text-2xl lg:text-3xl font-bold">
@@ -90,17 +94,21 @@ export default function Navbar({
         {/* Navigation Box */}
 
         <div
-          className="
-            bg-white/5
-            backdrop-blur-xl
-            border
-            border-white/10
-            rounded-2xl
-            px-8
-            py-4
-            flex
-            items-center
-          "
+          className={`
+  backdrop-blur-xl
+  border
+  rounded-2xl
+  px-8
+  py-4
+  flex
+  items-center
+  transition-colors
+  duration-500
+
+  ${darkMode
+    ? "bg-white/5 border-white/10"
+    : "bg-black/5 border-black/10"}
+`}
         >
 
           {/* Desktop Menu */}
@@ -169,17 +177,19 @@ export default function Navbar({
 
           <button
             onClick={() => setDarkMode(!darkMode)}
-            className="
-              hidden
-              lg:block
-              ml-6
-              px-4
-              py-2
-              rounded-xl
-              bg-white/10
-              hover:bg-white/20
-              transition
-            "
+           className={`
+  hidden
+  lg:block
+  ml-6
+  px-4
+  py-2
+  rounded-xl
+  transition
+
+  ${darkMode
+    ? "bg-white/10 hover:bg-white/20"
+    : "bg-black/10 hover:bg-black/20"}
+`}
           >
             {darkMode ? "☀️" : "🌙"}
           </button>
@@ -202,20 +212,25 @@ export default function Navbar({
       {menuOpen && (
 
         <div
-          className="
-            mt-4
-            bg-slate-900/90
-            backdrop-blur-xl
-            border
-            border-white/10
-            rounded-2xl
-            flex
-            flex-col
-            items-center
-            gap-8
-            py-10
-            lg:hidden
-          "
+          className={`
+  mt-4
+  backdrop-blur-xl
+  border
+  border-white/10
+  rounded-2xl
+  flex
+  flex-col
+  items-center
+  gap-8
+  py-10
+  lg:hidden
+  transition-colors
+  duration-500
+
+  ${darkMode
+    ? "bg-slate-900/90"
+    : "bg-white/90"}
+`}
         >
 
           <a

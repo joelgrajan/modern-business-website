@@ -54,11 +54,11 @@ useEffect(() => {
   setDarkMode={setDarkMode}
 />
 
-  <Hero />
+  <Hero darkMode={darkMode} />
 
   <About />
 
-  <Services />
+  <Services darkMode={darkMode} />
 
   <Testimonials />
 

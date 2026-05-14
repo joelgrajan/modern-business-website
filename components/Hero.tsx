@@ -1,6 +1,10 @@
 "use client"
 import { motion } from "framer-motion"
-export default function Hero() {
+export default function Hero({
+  darkMode,
+}: {
+  darkMode: boolean
+}) {
   return (
 
     <section
@@ -29,35 +33,38 @@ export default function Hero() {
         </h1>
 
         <p
-          className="
-            text-slate-300
-            text-lg
-            sm:text-xl
-            leading-8
-            max-w-3xl
-            mb-10
-          "
+          className={`
+  text-lg
+  sm:text-xl
+  leading-8
+  max-w-3xl
+  mb-10
+
+  ${darkMode
+    ? "text-gray-300"
+    : "text-slate-700"}
+`}
         >
           We create professional, responsive, and modern
           digital experiences for growing businesses.
         </p>
 
         <button
-          className="
-            bg-blue-600
-            hover:bg-blue-500
-            hover:scale-105
-            active:scale-95
-            transition-all
-            duration-300
-            px-8
-            py-5
-            rounded-2xl
-            text-lg
-            font-medium
-            shadow-lg
-            shadow-blue-600/20
-          "
+          className={`
+  hover:scale-105
+  active:scale-95
+  transition-all
+  duration-300
+  px-8
+  py-5
+  rounded-2xl
+  text-lg
+  font-medium
+
+  ${darkMode
+    ? "bg-blue-600 hover:bg-blue-500 shadow-lg shadow-blue-600/20"
+    : "bg-slate-900 text-white hover:bg-slate-800 shadow-lg shadow-slate-400/20"}
+`}
         >
           Get Started
         </button>
