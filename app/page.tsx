@@ -1,3 +1,4 @@
+"use client"
 import Navbar from "@/components/Navbar"
 import Hero from "@/components/Hero"
 import About from "@/components/About"
@@ -6,10 +7,41 @@ import Testimonials from "@/components/Testimonials"
 import Contact from "@/components/Contact"
 import Footer from "@/components/Footer"
 import ScrollProgress from "@/components/ScrollProgress"
-
+import { useEffect, useState } from "react"
 export default function Home() {
+  const [darkMode, setDarkMode] = useState(true)
+  useEffect(() => {
+
+  const savedTheme = localStorage.getItem("theme")
+
+  if (savedTheme === "light") {
+    setDarkMode(false)
+  }
+
+}, [])
+
+useEffect(() => {
+
+  localStorage.setItem(
+    "theme",
+    darkMode ? "dark" : "light"
+  )
+
+}, [darkMode])
   return (
-    <div className="bg-slate-950 min-h-screen text-white relative overflow-hidden">
+    <div
+  className={`
+    min-h-screen
+    relative
+    overflow-hidden
+    transition-colors
+    duration-500
+
+    ${darkMode
+      ? "bg-slate-950 text-white"
+      : "bg-slate-100 text-slate-900"}
+  `}
+>
       <div className="absolute top-[-200px] left-[-150px] w-[500px] h-[500px] bg-blue-500/20 rounded-full blur-[120px]"></div>
 
 <div className="absolute bottom-[-200px] right-[-150px] w-[500px] h-[500px] bg-cyan-500/20 rounded-full blur-[120px]"></div>
@@ -17,7 +49,10 @@ export default function Home() {
      <div className="relative z-10">
   <ScrollProgress />
   
-  <Navbar />
+  <Navbar
+  darkMode={darkMode}
+  setDarkMode={setDarkMode}
+/>
 
   <Hero />
 
