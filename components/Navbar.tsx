@@ -1,6 +1,11 @@
 "use client"
 
+import { Orbitron } from "next/font/google"
 import { useEffect, useState } from "react"
+
+const orbitron = Orbitron({
+  subsets: ["latin"],
+})
 
 export default function Navbar({
   darkMode,
@@ -70,23 +75,32 @@ export default function Navbar({
         {/* Logo Box */}
 
         <div
-         className={`
-  backdrop-blur-xl
-  border
-  rounded-2xl
-  px-6
-  py-4
-  transition-colors
-  duration-500
+          className={`
+            backdrop-blur-xl
+            border
+            rounded-2xl
+            px-6
+            py-4
+            transition-colors
+            duration-500
 
-  ${darkMode
-    ? "bg-white/5 border-white/10"
-    : "bg-black/5 border-black/10"}
-`}
+            ${darkMode
+              ? "bg-white/5 border-white/10"
+              : "bg-black/5 border-black/10"}
+          `}
         >
 
-          <h1 className="text-2xl lg:text-3xl font-bold">
-            ELINS
+          <h1
+            className={`
+              text-2xl
+              lg:text-3xl
+              font-bold
+              tracking-[0.18em]
+              uppercase
+              ${orbitron.className}
+            `}
+          >
+            JGR STUDIO
           </h1>
 
         </div>
@@ -95,20 +109,20 @@ export default function Navbar({
 
         <div
           className={`
-  backdrop-blur-xl
-  border
-  rounded-2xl
-  px-8
-  py-4
-  flex
-  items-center
-  transition-colors
-  duration-500
+            backdrop-blur-xl
+            border
+            rounded-2xl
+            px-8
+            py-4
+            flex
+            items-center
+            transition-colors
+            duration-500
 
-  ${darkMode
-    ? "bg-white/5 border-white/10"
-    : "bg-black/5 border-black/10"}
-`}
+            ${darkMode
+              ? "bg-white/5 border-white/10"
+              : "bg-black/5 border-black/10"}
+          `}
         >
 
           {/* Desktop Menu */}
@@ -177,19 +191,19 @@ export default function Navbar({
 
           <button
             onClick={() => setDarkMode(!darkMode)}
-           className={`
-  hidden
-  lg:block
-  ml-6
-  px-4
-  py-2
-  rounded-xl
-  transition
+            className={`
+              hidden
+              lg:block
+              ml-6
+              px-4
+              py-2
+              rounded-xl
+              transition
 
-  ${darkMode
-    ? "bg-white/10 hover:bg-white/20"
-    : "bg-black/10 hover:bg-black/20"}
-`}
+              ${darkMode
+                ? "bg-white/10 hover:bg-white/20"
+                : "bg-black/10 hover:bg-black/20"}
+            `}
           >
             {darkMode ? "☀️" : "🌙"}
           </button>
@@ -213,24 +227,24 @@ export default function Navbar({
 
         <div
           className={`
-  mt-4
-  backdrop-blur-xl
-  border
-  border-white/10
-  rounded-2xl
-  flex
-  flex-col
-  items-center
-  gap-8
-  py-10
-  lg:hidden
-  transition-colors
-  duration-500
+            mt-4
+            backdrop-blur-xl
+            border
+            border-white/10
+            rounded-2xl
+            flex
+            flex-col
+            items-center
+            gap-8
+            py-10
+            lg:hidden
+            transition-colors
+            duration-500
 
-  ${darkMode
-    ? "bg-slate-900/90"
-    : "bg-white/90"}
-`}
+            ${darkMode
+              ? "bg-slate-900/90"
+              : "bg-white/90"}
+          `}
         >
 
           <a
