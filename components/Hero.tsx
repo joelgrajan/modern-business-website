@@ -87,7 +87,8 @@ const rotateY = useTransform(
           digital experiences for growing businesses.
         </p>
 
-        <motion.button
+        <motion.a
+  href="#contact"
 
   onMouseMove={(e) => {
 
@@ -137,7 +138,7 @@ const rotateY = useTransform(
 
   Get Started
 
-</motion.button>
+</motion.a>
 
       </motion.div>
 
