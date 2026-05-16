@@ -23,7 +23,11 @@ const testimonials = [
   },
 ]
 
-export default function Testimonials() {
+export default function Testimonials({
+  darkMode,
+}: {
+  darkMode: boolean
+}) {
   return (
     <section className="py-28 px-6 lg:px-20 bg-slate-900/30">
 
@@ -57,20 +61,19 @@ export default function Testimonials() {
 
   viewport={{ once: false, amount: 0.3 }}
 
-  className="
-    bg-white/5
-backdrop-blur-xl
-border
-border-white/10
-shadow-lg
-shadow-blue-500/10
-    rounded-3xl
-    p-10
-    hover:-translate-y-3
-hover:shadow-blue-500/30
-    transition
-    duration-300
-  "
+  className={`
+  backdrop-blur-xl
+  border
+  rounded-3xl
+  p-10
+  hover:-translate-y-3
+  transition
+  duration-300
+
+  ${darkMode
+    ? "bg-white/5 border-white/10 shadow-lg shadow-blue-500/10 hover:shadow-blue-500/30"
+    : "bg-black/5 border-black/10 shadow-lg shadow-slate-300/20 hover:shadow-slate-400/30"}
+`}
 >
 
             <p className="text-slate-300 leading-8 mb-4">

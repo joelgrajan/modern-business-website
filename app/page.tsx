@@ -7,6 +7,7 @@ import Testimonials from "@/components/Testimonials"
 import Contact from "@/components/Contact"
 import Footer from "@/components/Footer"
 import ScrollProgress from "@/components/ScrollProgress"
+import CursorGlow from "@/components/CursorGlow"
 import { useEffect, useState } from "react"
 export default function Home() {
   const [darkMode, setDarkMode] = useState(true)
@@ -45,7 +46,7 @@ useEffect(() => {
       <div className="absolute top-[-200px] left-[-150px] w-[500px] h-[500px] bg-blue-500/20 rounded-full blur-[120px]"></div>
 
 <div className="absolute bottom-[-200px] right-[-150px] w-[500px] h-[500px] bg-cyan-500/20 rounded-full blur-[120px]"></div>
-
+<CursorGlow />
      <div className="relative z-10">
   <ScrollProgress />
   
@@ -59,8 +60,7 @@ useEffect(() => {
   <About />
 
   <Services darkMode={darkMode} />
-
-  <Testimonials />
+  <Testimonials darkMode={darkMode} />
 
   <Contact />
 
