@@ -79,8 +79,8 @@ export default function Navbar({
             backdrop-blur-xl
             border
             rounded-2xl
-            px-6
-            py-4
+           px-4 lg:px-6
+py-3 lg:py-4
             transition-colors
             duration-500
 
@@ -92,10 +92,10 @@ export default function Navbar({
 
           <h1
             className={`
-              text-2xl
-              lg:text-3xl
+              text-xl
+lg:text-3xl
               font-bold
-              tracking-[0.18em]
+              tracking-[0.12em]
               uppercase
               ${orbitron.className}
             `}
